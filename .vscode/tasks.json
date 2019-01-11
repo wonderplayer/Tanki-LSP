@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build game",
+            "type": "shell",
+            "command": "make",
+            "args": [ "PLATFORM=PLATFORM_DESKTOP" ],
+            // "command": "gcc",
+            // "args": [
+            //     "-o",
+            //     "game",
+            //     "-O1",
+            //     "-s",
+            //     "-Wall",
+            //     "-std=c99",
+            //     "-D_DEFAULT_SOURCE",
+            //     "-Wno-missing-braces",
+            //     "-D_DEFAULT_SOURCE",
+            //     "-I.",
+            //     "-I../../release/include",
+            //     "-I../../src",
+            //     "-I../../src/external",
+            //     "-L.",
+            //     "-L../../release/libs/linux",
+            //     "-L../../src",
+            //     "-lraylib",
+            //     "-lGL",
+            //     "-lm",
+            //     "-lpthread",
+            //     "-ldl",
+            //     "-lrt",
+            //     "-lX11",
+            //     "-DPLATFORM_DESKTOP",
+            //     "main.c"
+            // ],
+            
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
