@@ -7,7 +7,7 @@
             "label": "build game",
             "type": "shell",
             "command": "make",
-            "args": [ "PLATFORM=PLATFORM_DESKTOP" ],
+            "args": [ "PLATFORM=PLATFORM_DESKTOP", "-B" ],
             // "command": "gcc",
             // "args": [
             //     "-o",
@@ -34,7 +34,8 @@
             //     "-lrt",
             //     "-lX11",
             //     "-DPLATFORM_DESKTOP",
-            //     "main.c"
+            //     "main.c",
+            //     "-I./header"
             // ],
             
             "group": {
