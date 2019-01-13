@@ -7,8 +7,8 @@ char joinedTeam = 0;
 int main() {
 	// Initialization
 	// --------------------------------------
-	int screenWidth = 1500;
-	int screenHeight = 800;
+	int screenWidth = 1280;
+	int screenHeight = 832;
 	InitWindow(screenWidth, screenHeight, "TankIT");
 	InitializeMapObjects();
 	SetTargetFPS(30);
