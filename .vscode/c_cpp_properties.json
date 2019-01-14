@@ -4,9 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/rolands/Libraries/raylib/src/**",
                 "${workspaceFolder}/header",
-                "${workspaceFolder}/interface"
+                "${workspaceFolder}/interface",
+                "${workspaceFolder}/raylib/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
