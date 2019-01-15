@@ -26,7 +26,7 @@
 # Define required raylib variables
 # WARNING: To compile to HTML5, code must be redesigned to use emscripten.h and emscripten_set_main_loop()
 PLATFORM            ?= PLATFORM_DESKTOP
-RAYLIB_PATH         ?= ../..
+RAYLIB_PATH         ?= .
 PROJECT_NAME        ?= game
 DEBUGGING           ?= FALSE
 
@@ -184,6 +184,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     endif
     ifeq ($(PLATFORM_OS),LINUX)
         CFLAGS += -D_DEFAULT_SOURCE
+        CFLAGS += -fPIC
     endif
 endif
 ifeq ($(PLATFORM),PLATFORM_RPI)
@@ -223,6 +224,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),BSD)
         INCLUDE_PATHS += -I/usr/local/include
         LDFLAGS += -L. -Lsrc -L/usr/local/lib
+        
     endif
 endif
 
@@ -249,7 +251,11 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
         LDLIBS += -lX11
         # NOTE: It seems additional libraries are not required any more, latest GLFW just dlopen them
         #LDLIBS += -lXrandr -lXinerama -lXi -lXxf86vm -lXcursor
-        
+
+	#CUSTOM
+        INCLUDE_PATHS += -I./raylib/include
+        LDFLAGS += -L./raylib/lib
+	LDFLAGS += -Wl,-rpath '-Wl,/$/$$ORIGIN/raylib/lib'
         # On Wayland windowing system, additional libraries requires
         ifeq ($(USE_WAYLAND_DISPLAY),TRUE)
             LDLIBS += -lwayland-client -lwayland-cursor -lwayland-egl -lxkbcommon
